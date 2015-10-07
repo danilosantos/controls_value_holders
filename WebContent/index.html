@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+		
+
+		<script src="resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.ui.commons"
+				data-sap-ui-theme="sap_bluecrystal">
+		</script>
+		<!-- add sap.ui.table,sap.ui.ux3 and/or other libraries to 'data-sap-ui-libs' if required -->
+
+		<script>
+			var text_field = new sap.ui.commons.TextField('txt_nome', {
+				value : "Danilo",
+				editable : true,
+				required : true,
+				width : "30%",
+				maxLength : 20,
+				design : sap.ui.core.Design.Standart,
+				name : "name",
+				tooltip : "First Name"				
+			}).placeAt("divTextField");
+			
+			// pegar valor do campo texto
+			var btnEnviar = new sap.ui.commons.Button("btnEnviar", {
+				text: "Capturar texto",				
+				press: function (){
+						alert(sap.ui.getCore().byId("txt_nome").getValue());
+				}
+			}).placeAt("divBtnEnviar");
+			
+			var text_area = new sap.ui.commons.TextArea({
+				maxLength : 140,
+				name : "bio",
+				cols : 45,
+				rows : 4,
+				wrapping : sap.ui.core.Wrapping.Hard,
+				cursorPos : 0,
+				explanation : "Some explanation",
+				});
+				text_area.placeAt("divTextArea");
+			
+				
+			
+				
+		</script>
+
+	</head>
+	<body class="sapUiBody" role="application">
+		<div>
+			<span>TextField</span>
+			<div id="divTextField"></div>
+		</div>
+		<br>
+		<div id="divBtnEnviar"></div>
+		<br>
+		<div>
+			<span>TextArea</span>
+			<div id="divTextArea"></div>
+		</div>
+	</body>
+</html>
